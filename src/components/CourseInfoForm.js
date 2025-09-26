@@ -11,7 +11,7 @@ const darkTheme = createTheme({
 function App() {
   return (
     <ThemeProvider theme={darkTheme}>
-      <CssBaseline /> {/* This provides a consistent styling baseline */}
+      <CssBaseline /> {}
       <Container maxWidth="md" sx={{ mt: 4 }}>
         <header style={{ textAlign: 'center', marginBottom: '32px' }}>
           <Typography variant="h3" component="h1" gutterBottom>
@@ -22,7 +22,7 @@ function App() {
           </Typography>
         </header>
         <main>
-          {/* Our form components will go here later */}
+          {}
         </main>
       </Container>
     </ThemeProvider>
