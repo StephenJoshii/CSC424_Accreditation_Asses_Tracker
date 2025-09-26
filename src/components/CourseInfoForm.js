@@ -1,19 +1,21 @@
 // src/components/CourseInfoForm.js
-
-import React, { useState } from 'react';
-
-// MUI components for building the form structure
+import React from 'react';
 import { Card, CardContent, Typography, TextField, Grid } from '@mui/material';
 
-/**
- * Renders the course information section of the form.
- * Captures course number and student counts.
- */
-function CourseInfoForm() {
-  // State hooks for form inputs
-  const [courseNumber, setCourseNumber] = useState('');
-  const [csStudents, setCsStudents] = useState('');
-  const [ceStudents, setCeStudents] = useState('');
+// This component now receives its state and updater function via props.
+function CourseInfoForm({ courseInfo, setCourseInfo }) {
+  
+  /**
+   * Handles input changes and updates the parent state.
+   * @param {React.ChangeEvent<HTMLInputElement>} event - The input change event.
+   */
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setCourseInfo(prevInfo => ({
+      ...prevInfo,
+      [name]: value,
+    }));
+  };
 
   return (
     <Card sx={{ mb: 4 }}>
@@ -23,37 +25,13 @@ function CourseInfoForm() {
         </Typography>
         <Grid container spacing={3}>
           <Grid item xs={12} sm={4}>
-            <TextField
-              fullWidth
-              id="courseNumber"
-              label="Course Number"
-              variant="outlined"
-              placeholder="e.g., CSC 424"
-              value={courseNumber}
-              onChange={(e) => setCourseNumber(e.target.value)}
-            />
+            <TextField fullWidth name="number" label="Course Number" variant="outlined" value={courseInfo.number} onChange={handleChange}/>
           </Grid>
           <Grid item xs={12} sm={4}>
-            <TextField
-              fullWidth
-              id="csStudents"
-              label="Number of CS Students"
-              type="number"
-              variant="outlined"
-              value={csStudents}
-              onChange={(e) => setCsStudents(e.target.value)}
-            />
+            <TextField fullWidth name="cs" label="Number of CS Students" type="number" variant="outlined" value={courseInfo.cs} onChange={handleChange}/>
           </Grid>
           <Grid item xs={12} sm={4}>
-            <TextField
-              fullWidth
-              id="ceStudents"
-              label="Number of CEng Students"
-              type="number"
-              variant="outlined"
-              value={ceStudents}
-              onChange={(e) => setCeStudents(e.target.value)}
-            />
+            <TextField fullWidth name="ce" label="Number of CEng Students" type="number" variant="outlined" value={courseInfo.ce} onChange={handleChange}/>
           </Grid>
         </Grid>
       </CardContent>
