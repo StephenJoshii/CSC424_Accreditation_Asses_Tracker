@@ -1,17 +1,26 @@
 // src/App.js
+
+// Core MUI components for theming and layout
 import { CssBaseline, Container, Typography, createTheme, ThemeProvider } from '@mui/material';
 
-// Create a dark theme instance
+// Application-specific components
+import CourseInfoForm from './components/CourseInfoForm';
+
+// Defines the dark theme for the entire application
 const darkTheme = createTheme({
   palette: {
     mode: 'dark',
   },
 });
 
+/**
+ * The main application component.
+ * Sets up the theme, layout, and renders page content.
+ */
 function App() {
   return (
     <ThemeProvider theme={darkTheme}>
-      <CssBaseline /> {/* This provides a consistent styling baseline */}
+      <CssBaseline />
       <Container maxWidth="md" sx={{ mt: 4 }}>
         <header style={{ textAlign: 'center', marginBottom: '32px' }}>
           <Typography variant="h3" component="h1" gutterBottom>
@@ -22,7 +31,7 @@ function App() {
           </Typography>
         </header>
         <main>
-          {/* Our form components will go here later */}
+          <CourseInfoForm />
         </main>
       </Container>
     </ThemeProvider>
