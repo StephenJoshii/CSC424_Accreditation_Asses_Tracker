@@ -5,6 +5,7 @@ import { CssBaseline, Container, Typography, createTheme, ThemeProvider } from '
 
 // Application-specific components
 import CourseInfoForm from './components/CourseInfoForm';
+import DocumentUpload from './components/DocumentUpload'; // Import the new component
 
 // Defines the dark theme for the entire application
 const darkTheme = createTheme({
@@ -32,6 +33,7 @@ function App() {
         </header>
         <main>
           <CourseInfoForm />
+          <DocumentUpload /> {/* Add the new component here */}
         </main>
       </Container>
     </ThemeProvider>
