@@ -1,11 +1,12 @@
 // src/App.js
 
 // Core MUI components for theming and layout
-import { CssBaseline, Container, Typography, createTheme, ThemeProvider } from '@mui/material';
+import { CssBaseline, Container, Typography, createTheme, ThemeProvider, Button, Box } from '@mui/material';
 
 // Application-specific components
 import CourseInfoForm from './components/CourseInfoForm';
-import DocumentUpload from './components/DocumentUpload'; // Import the new component
+import DocumentUpload from './components/DocumentUpload';
+import AssessmentMetricsForm from './components/AssessmentMetricsForm'; // Import the new component
 
 // Defines the dark theme for the entire application
 const darkTheme = createTheme({
@@ -22,7 +23,7 @@ function App() {
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
-      <Container maxWidth="md" sx={{ mt: 4 }}>
+      <Container maxWidth="md" sx={{ mt: 4, mb: 4 }}>
         <header style={{ textAlign: 'center', marginBottom: '32px' }}>
           <Typography variant="h3" component="h1" gutterBottom>
             Accreditation Assessment Tracker
@@ -33,8 +34,14 @@ function App() {
         </header>
         <main>
           <CourseInfoForm />
-          <DocumentUpload /> {/* Add the new component here */}
+          <DocumentUpload />
+          <AssessmentMetricsForm /> {/* Add the new component here */}
         </main>
+        <Box sx={{ mt: 4, display: 'flex', justifyContent: 'flex-end' }}>
+          <Button variant="contained" color="primary" size="large">
+            Submit Assessment
+          </Button>
+        </Box>
       </Container>
     </ThemeProvider>
   );
