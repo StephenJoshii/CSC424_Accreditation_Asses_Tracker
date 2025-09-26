@@ -1,9 +1,10 @@
 // src/firebase.js
+
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
-// Your web app's Firebase configuration
+// Reads the configuration from your .env.local file.
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
   authDomain: process.env.REACT_APP_AUTH_DOMAIN,
@@ -16,6 +17,6 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-// Export the services you'll need
+// Initialize and export Firebase services
 export const db = getFirestore(app);
 export const storage = getStorage(app);
